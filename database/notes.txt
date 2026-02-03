@@ -1,0 +1,69 @@
+
+user {
+    id, timestammp
+    name, email ..
+}
+
+city {
+    is_timestamp
+    name 
+}
+
+Route {
+    id, timestamps
+    name 
+    description 
+    timestamp
+}
+
+bus {
+    id, timestamp
+    capacity
+    matricule
+    status (available, ...)
+}
+
+
+06 90 520622 
+
+station {
+    id, timestamp
+    city_id fk 
+    name 
+    adress
+}
+
+segment {
+    startCity fk
+    endCity   fk 
+}
+
+Program {
+    id, timestamp
+    route_id  fk 
+    segment_id  fk 
+    busId   fk
+    distance
+    price
+    StartTime
+    endTime
+}
+
+routeStops {
+    id, timestammp
+    route_id,  fk 
+    station_id,  fk 
+    order
+}
+
+
+reservation {
+    id, timestammp 
+    user_id, 
+    program_id,
+    status enum(pending, confirmed, cancelled,), 
+    seatNumber 
+}
+
+seatsLeft for a program =  busCapacity - reservation
+same we can get free seats = [1, capacity] - reservedseats
