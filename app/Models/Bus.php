@@ -9,4 +9,9 @@ class Bus extends Model
 {
     /** @use HasFactory<\Database\Factories\BusFactory> */
     use HasFactory;
+    protected $fillable = ['capacity', 'status'];
+
+    public function programs() {
+        return $this->hasMany(Program::class);
+    }
 }
