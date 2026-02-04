@@ -17,7 +17,8 @@ class BusFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'capacity' => fake()->numberBetween(35, 65),
+            'status' => fake()->randomElement(['available', 'maintenance', 'unavailable'])
         ];
     }
 }
