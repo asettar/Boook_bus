@@ -18,7 +18,7 @@ class RouteFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => "Route-" . fake()->unique()->randomNumber(3),
+            'name' => "Route-" . fake()->unique()->randomNumber(2),
             'description' => fake()->sentence(), 
         ];
     }

@@ -20,7 +20,7 @@ class StationFactory extends Factory
         return [
             'city_id' => City::factory(),
             'name' => fake()->streetName(),
-            'address' => fake()->address(),
+            'address' => fake()->streetAddress(),
         ];
     }
 }

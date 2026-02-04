@@ -23,9 +23,6 @@ bus {
     status (available, ...)
 }
 
-
-06 90 520622 
-
 station {
     id, timestamp
     city_id fk 

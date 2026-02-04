@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             // UserSeeder::class,
             CitySeeder::class, 
             StationSeeder::class, 
-            // BusSeeder::class
+            BusSeeder::class
         ]);
     }
 }
