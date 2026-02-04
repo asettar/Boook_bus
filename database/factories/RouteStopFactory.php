@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Route;
+use App\Models\Station;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,8 @@ class RouteStopFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'route_id' => Route::factory(), 
+            'station_id' => Station::factory(), 
         ];
     }
 }
