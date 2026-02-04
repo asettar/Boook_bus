@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('stations', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('city_id')->constrained()->cascadeOnDelete();
             $table->string('name');
             $table->string('address');
-            $table->foreignId('city_id')->constrained()->cascadeOnDelete();
+            $table->timestamps();
         });
     }
 
