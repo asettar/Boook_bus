@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\City;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,8 @@ class RouteFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => "Route-" . fake()->numberBetween(1, 100),
+            'description' => fake()->sentence(), 
         ];
     }
 }
