@@ -9,4 +9,13 @@ class RouteStop extends Model
 {
     /** @use HasFactory<\Database\Factories\RouteStopFactory> */
     use HasFactory;
+    protected $fillable = ['route_id', 'station_id', 'order'];
+    
+    public function route() {
+        return $this->belongsTo(Route::class);
+    }
+
+    public function station() {
+        return $this->belongsTo(Station::class);
+    }
 }
