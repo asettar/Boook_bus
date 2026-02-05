@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('route_id')->constrained()->cascadeOnDelete();
             $table->foreignId('station_id')->constrained()->cascadeOnDelete();
-            $table->integer('order');
+            $table->integer('duration_from_start')->default(0); // in minutes(duration from begin of route till arrival)
+            $table->float('distance_from_start')->default(0); // in km
             $table->timestamps();
         });
     }
