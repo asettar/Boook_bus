@@ -10,22 +10,42 @@ use Illuminate\Database\Seeder;
 
 class ProgramSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-    // protected $fillable = ['route_id', 'segment_id', 'bus_id', 'distance', 'price', 'start_time', 'end_time'];
+        $programs = [
 
-        $data = [
-            //c-m
-            ['route_id' => 1, 'segment_id' => 3, 'bus_id' => 1, 'distance' => 240, 'price' => 200, 'start_time' => '2025-02-06 10:00:00'], 
-            ['route_id' => 1, 'segment_id' => 3, 'bus_id' => 2, 'distance' => 240, 'price' => 220, 'start_time' => '2025-02-06 16:00:00'], 
-            ['route_id' => 1, 'segment_id' => 3, 'bus_id' => 2, 'distance' => 240, 'price' => 250, 'start_time' => '2025-02-06 20:00:00'], 
+            [
+                'route' => 'Casa-Settat-Marrakech' ,
+                'departure_time' => now()->addDay()->setTime(8, 0),
+            ],
+            [
+                'route' => 'Casa-Settat-Marrakech' ,
+                'departure_time' => now()->addDay()->setTime(21, 30),
+            ],
+            [
+                'route' => 'Casa-Marrakech Direct',
+                'departure_time' => now()->addDay()->setTime(9, 0),
+            ],
+            [
+                'route' => 'Casa-Settat' ,
+                'departure_time' => now()->addDay()->setTime(14, 0),
+            ],
+            [
+                'route' => 'Settat-Marrakech',
+                'departure_time' => now()->addDay()->setTime(17, 0),
+            ],
         ];
 
-        collect($data)->map(function($programData) {
-            Program::factory()->create($programData);
-        });
+        foreach ($programs as $data) {
+
+            $route = Route::where('name', $data['route'])->first();
+
+            Program::factory()->create([
+                'route_id' => $route->id,
+                'departure_time' => $data['departure_time'],
+            ]);
+        }
     }
 }
+
+

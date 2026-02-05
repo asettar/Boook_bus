@@ -22,12 +22,8 @@ class ProgramFactory extends Factory
     {
         return [
             'route_id' => Route::factory(),
-            'segment_id' => Segment::factory(),
             'bus_id' => Bus::factory(),
-            'distance' => fake()->numberBetween(20, 500),
-            'price' => fake()->randomFloat(2, 30, 500),
-            'start_time' => new DateTime(),
-            'end_time' => new DateTime('2030-01-01'),   // to be ubdated in seeders
+            'departure_time' => new DateTime(),
         ];
     }
 }

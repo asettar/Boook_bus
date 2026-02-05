@@ -14,12 +14,8 @@ return new class extends Migration
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('route_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('segment_id')->constrained()->cascadeOnDelete();
             $table->foreignId('bus_id')->constrained()->cascadeOnDelete();
-            $table->integer('distance');
-            $table->float('price');
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
+            $table->dateTime('departure_time');
             $table->timestamps();
         });
     }
