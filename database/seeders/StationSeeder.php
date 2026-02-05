@@ -9,23 +9,41 @@ use Illuminate\Database\Seeder;
 
 class StationSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        // $cities = City::all();
-        // foreach($cities as $city) {
-        //     $stationsCnt = rand(1, 3);  // 1 or 3 station per city 
-        //     // dump($city->id); 
-        //     Station::factory($stationsCnt)->create(['city_id' => $city->id]);
-        // }   
+        $casa = City::where('name', 'Casablanca')->first();
+        $kesh = City::where('name', 'Marrakech')->first();
+        $settat = City::where('name', 'Settat')->first();
 
-        Station::factory()->create(['name' => 'casaMaarif']);
-        Station::factory()->create(['name' => 'casaOuasis']);
-        Station::factory()->create(['name' => 'casaNouasser']);
-        Station::factory()->create(['name' => 'keshGuelise']);
-        Station::factory()->create(['name' => 'KeshCenter']);
-        Station::factory()->create(['name' => 'SettatMassira']);
+        Station::factory()->create([
+            'name' => 'Casa Maarif',
+            'city_id' => $casa->id
+        ]);
+
+        Station::factory()->create([
+            'name' => 'Casa Oasis',
+            'city_id' => $casa->id
+        ]);
+
+        Station::factory()->create([
+            'name' => 'Casa Nouaceur',
+            'city_id' => $casa->id
+        ]);
+
+        Station::factory()->create([
+            'name' => 'Gueliz',
+            'city_id' => $kesh->id
+        ]);
+
+        Station::factory()->create([
+            'name' => 'Marrakech Center',
+            'city_id' => $kesh->id
+        ]);
+
+        Station::factory()->create([
+            'name' => 'Settat Massira',
+            'city_id' => $settat->id
+        ]);
     }
 }
+
