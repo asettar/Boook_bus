@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Bus;
 use App\Models\Route;
 use App\Models\Segment;
+use DateTime;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -25,7 +26,8 @@ class ProgramFactory extends Factory
             'bus_id' => Bus::factory(),
             'distance' => fake()->numberBetween(20, 500),
             'price' => fake()->randomFloat(2, 30, 500),
-            // startTime, endTime will be manually added 
+            'start_time' => new DateTime(),
+            'end_time' => new DateTime('2030-01-01'),   // to be ubdated in seeders
         ];
     }
 }

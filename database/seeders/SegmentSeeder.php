@@ -14,18 +14,56 @@ class SegmentSeeder extends Seeder
      */
     public function run(): void
     {
-        $cities = City::all();
-        $segments = 0;
-        while ($segments < 10) {
-            $startCity = $cities->random();
-            $endCity = $cities->random();
-            if ($startCity == $endCity) continue;
+        // $cities = City::all();
+        // $segments = 0;
+        // while ($segments < 10) {
+        //     $startCity = $cities->random();
+        //     $endCity = $cities->random();
+        //     if ($startCity == $endCity) continue;
 
-            Segment::factory()->create([
-                'start_city_id' => $startCity->id,
-                'end_city_id' => $endCity->id,
-            ]);
-            $segments++;
-        } 
+        //     Segment::factory()->create([
+        //         'start_city_id' => $startCity->id,
+        //         'end_city_id' => $endCity->id,
+        //     ]);
+        //     $segments++;
+        // } 
+
+        // casablanca -marrakesh
+        Segment::factory()->create([
+            'start_city_id' => 1,
+            'end_city_id' => 3,
+        ]);
+        
+        //casa-settat
+        Segment::factory()->create([
+            'start_city_id' => 1,
+            'end_city_id' => 2,
+        ]);
+
+        // marrakesh-casablanca
+        Segment::factory()->create([
+            'start_city_id' => 3,
+            'end_city_id' => 1,
+        ]);
+
+
+        // marrakech-settat
+        Segment::factory()->create([
+            'start_city_id' => 3,
+            'end_city_id' => 2,
+        ]);
+
+        // settat-casablanca
+        Segment::factory()->create([
+            'start_city_id' => 2,
+            'end_city_id' => 1,
+        ]);
+
+        //settat-marakesh
+
+        Segment::factory()->create([
+            'start_city_id' => 2,
+            'end_city_id' => 3,
+        ]);
     }
 }

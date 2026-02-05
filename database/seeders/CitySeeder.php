@@ -13,6 +13,9 @@ class CitySeeder extends Seeder
      */
     public function run(): void
     {
-        City::factory(10)->create();
+        City::factory()->create(['name' => 'Casablanca']);
+        City::factory()->create(['name' => 'Settat']);
+        City::factory()->create(['name' => 'Marrakech']);
+        // City::factory(10)->create();
     }
 }

@@ -14,11 +14,18 @@ class StationSeeder extends Seeder
      */
     public function run(): void
     {
-        $cities = City::all();
-        foreach($cities as $city) {
-            $stationsCnt = rand(1, 3);  // 1 or 3 station per city 
-            // dump($city->id); 
-            Station::factory($stationsCnt)->create(['city_id' => $city->id]);
-        }   
+        // $cities = City::all();
+        // foreach($cities as $city) {
+        //     $stationsCnt = rand(1, 3);  // 1 or 3 station per city 
+        //     // dump($city->id); 
+        //     Station::factory($stationsCnt)->create(['city_id' => $city->id]);
+        // }   
+
+        Station::factory()->create(['name' => 'casaMaarif']);
+        Station::factory()->create(['name' => 'casaOuasis']);
+        Station::factory()->create(['name' => 'casaNouasser']);
+        Station::factory()->create(['name' => 'keshGuelise']);
+        Station::factory()->create(['name' => 'KeshCenter']);
+        Station::factory()->create(['name' => 'SettatMassira']);
     }
 }
