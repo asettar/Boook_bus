@@ -16,10 +16,6 @@ class Program extends Model
         return $this->belongsTo(Route::class);
     }
 
-    public function segment() {
-        return $this->belongsTo(Segment::class);
-    }
-
     public function bus() {
         return $this->belongsTo(Bus::class);
     }
