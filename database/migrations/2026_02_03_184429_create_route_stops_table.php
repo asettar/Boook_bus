@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('station_id')->constrained()->cascadeOnDelete();
             $table->integer('duration_from_start')->default(0); // in minutes(duration from begin of route till arrival)
             $table->float('distance_from_start')->default(0); // in km
+            $table->float('price_from_start')->default(0); // in km
             $table->timestamps();
         });
     }

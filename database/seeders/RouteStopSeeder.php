@@ -22,16 +22,18 @@ class RouteStopSeeder extends Seeder
 
         $duration = 0;
         $distance = 0;
+        $price = 0;
         $lastCity = null;
         
         foreach ($stations as $stationName) {
             
             $station = Station::where('name', $stationName)->first();
-            $stationCity = $station->city;
+            $stationCity = $station->city->name;
             
             if ($lastCity) {
                 $duration += (($stationCity == $lastCity) ? rand(5, 15) : rand(30, 60));
                 $distance += (($stationCity == $lastCity) ? rand(5, 10) : rand(50, 80));
+                $price += (($stationCity == $lastCity) ? rand(8, 18) : rand(50, 150));
             }
 
             RouteStop::create([
@@ -39,6 +41,7 @@ class RouteStopSeeder extends Seeder
                 'station_id' => $station->id,
                 'duration_from_start' => $duration,
                 'distance_from_start' => $distance,
+                'price_from_start' => $price
             ]);
 
             $lastCity = $stationCity;
@@ -49,8 +52,9 @@ class RouteStopSeeder extends Seeder
     public function run(): void
     {
         // db visualise
-        // select route_id, s.name, duration_from_start, distance_from_start from route_stops
-        // join stations s on s.id = station_id;  
+        // select route_id, s.name, price_from_start, duration_from_start, distance_from_start from route_stops
+        // join stations s on s.id = station_id
+        // group by route_stops.route_id 
         $this->addStops('Casa-Settat-Marrakech', [
             'Casa Maarif',
             'Casa Oasis',
