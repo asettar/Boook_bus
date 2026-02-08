@@ -11,7 +11,10 @@ class Program extends Model
     use HasFactory;
 
     protected $fillable = ['route_id', 'segment_id', 'bus_id', 'distance', 'price', 'start_time', 'end_time'];
-
+    protected $casts = [
+        'departure_time' => 'datetime',
+    ];
+    
     public function route() {
         return $this->belongsTo(Route::class);
     }

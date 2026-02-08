@@ -31,9 +31,9 @@ class RouteStopSeeder extends Seeder
             $stationCity = $station->city->name;
             
             if ($lastCity) {
-                $duration += (($stationCity == $lastCity) ? rand(5, 15) : rand(30, 60));
-                $distance += (($stationCity == $lastCity) ? rand(5, 10) : rand(50, 80));
-                $price += (($stationCity == $lastCity) ? rand(8, 18) : rand(50, 150));
+                $duration += (($stationCity == $lastCity) ? rand(5, 15) : rand(80, 130));
+                $distance += (($stationCity == $lastCity) ? rand(5, 10) : rand(70, 170));
+                $price += (($stationCity == $lastCity) ? rand(8, 18) : rand(50, 130));
             }
 
             RouteStop::create([

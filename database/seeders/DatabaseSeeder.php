@@ -25,8 +25,7 @@ class DatabaseSeeder extends Seeder
             RouteSeeder::class,
             RouteStopSeeder::class,
             ProgramSeeder::class,
-            // ProgramSegmentSeeder::class,
-            // ReservationSeeder::class,
+            ReservationSeeder::class,
         ]);
     }
 }
